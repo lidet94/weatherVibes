@@ -12,3 +12,11 @@ export function getMood(weatherCode){
         return "Stormy"
     } 
 }
+
+export const mealCategories ={
+  Sunny: ["Seafood", "Vegan", "Vegetarian", "Side"],
+  "Partly cloudy": ["Pasta", "Side"],
+  Rainy: ["Beef", "Dessert"],
+  Snowy: ["Lamb", "Dessert"],
+  Stormy: ["Chicken", "Beef", "Dessert"]
+}
