@@ -1,23 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Weather Vibes</title>
-</head>
-<body>
-   
-    <div id="location"></div> <!--city and country appears-->
-    <div id="temperature"></div> 
-    <div id="mood"></div>
 
-    <div id="cityInfo" style="display: none;">
-     <input id="name" type="text" placeholder="Enter your city manually">
-     <button id="cityBtn" type="button">Enter</button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Weather Vibes</title>
+</head>
+
+<body>
+  <!-- Main layout control wrapper -->
+  <div class="dashboard-wrapper">
+
+    <!-- PANEL 1: Weather Details -->
+    <div class="panel weather-card">
+      <img id="weatherIcon" />
+      <div id="location">Loading location...</div>
+      <div id="temperature">--°C</div>
+      <div id="mood">Detecting sky conditions...</div>
+      <div id="app_temp">Apparent temperature...</div>
+      <div id="humidity"></div>
+
+
+      <!-- Manual Fallback input -->
+      <div id="cityInfo" style="display: none;">
+        <input id="name" type="text" placeholder="Enter your city manually">
+        <button id="cityBtn" type="button">Enter</button>
+      </div>
     </div>
-    <div id="mealsContainer"> </div>
-    
-    <script type="module" src="app.js"></script>
+
+    <!-- PANEL 2: Youtube -->
+    <div class="panel music-card">
+      <h2>Soundtrack Playlist</h2>
+      <div class="player-wrapper">
+        <div id="player"></div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: Meal recommendation -->
+    <div class="panel meals-card">
+      <h2>Meals to match the vibe</h2>
+      <div id="mealsContainer"></div>
+    </div>
+
+  </div>
+
+  <script type="module" src="app.js"></script>
 </body>
+
 </html>
