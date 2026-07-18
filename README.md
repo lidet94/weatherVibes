@@ -34,9 +34,9 @@ Based on that mood, the app:
 
 ## APIs Used
 
-| [GeoJS](https://get.geojs.io/) | IP-based location detection |
-| [Open-Meteo](https://open-meteo.com/) | Free real-time weather data |
-| [TheMealDB](https://www.themealdb.com/) | Meal suggestions by category |
+| [GeoJS](https://get.geojs.io/) | IP-based location detection |  
+| [Open-Meteo](https://open-meteo.com/) | Free real-time weather data |  
+| [TheMealDB](https://www.themealdb.com/) | Meal suggestions by category |  
 | [YouTube IFrame API](https://developers.google.com/youtube/iframe_api_reference) | Embedded mood playlist |
 
 No API keys required for GeoJS, Open-Meteo, or TheMealDB.
@@ -117,7 +117,7 @@ GeoJS → coordinates → Open-Meteo → weather code
 
 ## Credits
 
-Built by: Bana
+Built by: Bana  
 GitHub: https://github.com/lidet94  
 SVG icons from [SVGRepo](https://www.svgrepo.com/)  
 Colour inspiration from Pinterest and [ColorHunt](https://colorhunt.co/)
