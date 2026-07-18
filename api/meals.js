@@ -1,14 +1,15 @@
 export async function getMeals(category) {
-    
-    try{
+
+    //fetched data from themealdb
+    try {
         const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`HTTPS not found:${response.status}`)
         }
         const data = await response.json()
         return data
-    } catch (error){
+    } catch (error) {
         console.error("something went wrong", error)
         return null
     }

@@ -4,6 +4,7 @@ let player;
 let selectedPlaylistId = "";
 let isScriptInjected = false;
 
+// When YouTube API script is ready, create the music player
 window.onYouTubeIframeAPIReady = function () {
 
   player = new YT.Player("player", {
@@ -27,6 +28,7 @@ window.onYouTubeIframeAPIReady = function () {
   });
 };
 
+// Load the correct playlist based on the current mood
 export function loadMusic(condition) {
   const cleanCondition = condition.toLowerCase().trim();
   const playlistData = playlistIds[cleanCondition];
@@ -40,7 +42,7 @@ export function loadMusic(condition) {
   const id = typeof playlistData === "object" ? playlistData.playlistId : playlistData;
   selectedPlaylistId = id;
 
-
+  // If player already exists, switch playlist without reloading
   if (player && typeof player.loadPlaylist === "function") {
 
     player.loadPlaylist({
@@ -52,6 +54,7 @@ export function loadMusic(condition) {
     return;
   }
 
+  // Inject the YouTube IFrame API script into the page
   if (!isScriptInjected) {
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
