@@ -1,4 +1,19 @@
-export async function getWeather(latitude, longitude) {
+interface CurrentWeather{
+   temperature_2m: number,
+   weather_code: number,
+   apparent_temperature: number,
+   wind_speed_10m: number, 
+   relative_humidity_2m: number,
+   is_day: number
+}
+
+interface WeatherResponse{
+   latitude: number;
+   longitude: number;
+   current: CurrentWeather;
+}
+
+export async function getWeather(latitude: string, longitude: string) : Promise< WeatherResponse | null> {
     // Convert coordinate strings to float numbers
     const lat = parseFloat(latitude)
     const long = parseFloat(longitude)
@@ -10,7 +25,7 @@ export async function getWeather(latitude, longitude) {
         if (!response.ok) {
             throw new Error(`HTTPS not found: ${response.status}`)
         }
-        const data = await response.json()
+        const data: WeatherResponse = await response.json()
         return data
 
     } catch (error) {
