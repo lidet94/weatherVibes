@@ -1,4 +1,20 @@
-export async function getLocation() {
+interface GeoApiResponse {
+    city: string;
+    region: string;
+    country: string;
+    latitude: string;
+    longitude: string;
+}
+
+interface GeoLocation {
+    city: string,
+    region: string,
+    country: string,
+    latitude: number,
+    longitude: number
+}
+
+export async function getLocation(): Promise<GeoLocation | null> {
 
    //fetch data from geojs
    try {
@@ -6,7 +22,7 @@ export async function getLocation() {
 
       if (!response.ok) {
          throw new Error(`HTTPS not found: ${response.status}`)
-      } const data = await response.json();
+      } const data: GeoApiResponse = await response.json();
 
       return {
          city: data.city,
