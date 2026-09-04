@@ -1,5 +1,5 @@
 // Maps Open-Meteo weather codes to one of five mood strings
-export function getMood(weatherCode) {
+export function getMood(weatherCode: number): string | undefined {
 
   if (weatherCode === 0 || weatherCode === 1) {
     return "Sunny"
@@ -13,9 +13,12 @@ export function getMood(weatherCode) {
     return "Stormy"
   }
 }
+interface MealCategories {
+  [key: string]: string[];
+}
 
 //Matched the moods to a category from theMealdb
-export const mealCategories = {
+export const mealCategories: MealCategories = {
   Sunny: ["Seafood", "Vegan", "Vegetarian", "Starter"],
   "Partly cloudy": ["Pasta", "Miscellaneous"],
   Rainy: ["Beef", "Dessert"],
@@ -23,8 +26,14 @@ export const mealCategories = {
   Stormy: ["Chicken", "Beef", "Dessert"]
 }
 
+interface PlaylistIds {
+  [key: string]: {
+    playlistId: string;
+    displayName: string;
+  };
+}
 //Matched the moods to a playlistId from Youtube
-export const playlistIds = {
+export const playlistIds: PlaylistIds = {
   sunny: {
     playlistId: 'PLJXKx9DWsGy0',
     displayName: 'Sunny Afro-Fusion Beats'
@@ -47,8 +56,11 @@ export const playlistIds = {
   }
 };
 
+interface MoodIcons {
+  [key: string]: string;
+}
 //Matched moods to an icon from svgrepo.com
-export const moodIcons = {
+export const moodIcons: MoodIcons = {
   Sunny: "./assets/icons/sunny.svg",
   "Partly cloudy": "./assets/icons/cloudy.svg",
   Rainy: "./assets/icons/rain.svg",
