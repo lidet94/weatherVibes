@@ -1,8 +1,15 @@
 import { playlistIds } from "../data/moods.js";
 
-let player;
-let selectedPlaylistId = "";
+
+let player: YT.Player | undefined;
+let selectedPlaylistId= "";
 let isScriptInjected = false;
+
+declare global {
+  interface Window {
+    onYouTubeIframeAPIReady: () => void;
+  }
+}
 
 // When YouTube API script is ready, create the music player
 window.onYouTubeIframeAPIReady = function () {
@@ -29,7 +36,7 @@ window.onYouTubeIframeAPIReady = function () {
 };
 
 // Load the correct playlist based on the current mood
-export function loadMusic(condition) {
+export function loadMusic(condition: string) {
   const cleanCondition = condition.toLowerCase().trim();
   const playlistData = playlistIds[cleanCondition];
 
@@ -60,8 +67,12 @@ export function loadMusic(condition) {
     tag.src = "https://www.youtube.com/iframe_api";
 
     const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+     
+    if(firstScriptTag){
+        if(firstScriptTag.parentNode){
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+    }
     isScriptInjected = true;
   }
 }
